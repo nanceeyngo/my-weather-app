@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.weather-container{
+  text-align: center;
+  margin: 50px auto 0px;
+  background-color: rgb(0, 255, 166);
+  width: 90%;
+  max-width: 700px;
+  padding: 20px 15px;
+  height: 480px;
+  border-radius: 25px;
+  font-family: 'Manrope', serif;
+}
+.search-engine{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.search-engine input{
+  width: 70%;
+  height: 45px;
+  padding: 3px 15px;
+  border: solid 1px;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: white;
+  color: #555555;
+  
+}
+.search-engine button {
+  border: none;
+  background-color: black;
+  border-radius: 8px;
+  color: white;
+  padding: 13px 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.temp{
+  font-size: 64px;
+  font-weight: 900;
+  
+}
+.city-name{
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+.loading{
+  font-weight: 900;
+  font-size: 60px;
+}
+.date{
+  font-size: 18px;
+  font-weight: 900;
+  font-style: italic;
+}
+.description{
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+.weather-info{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 20px;
+  font-weight: 900;
+  font-size: 20px;
+}
+.column{
+  display: flex;
+  flex-direction: column;
+  line-height: 20px;
+}
