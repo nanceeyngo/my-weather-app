@@ -57,6 +57,11 @@
   font-weight: 900;
   font-size: 60px;
 }
+.error-message{
+  font-weight: 900;
+  font-size: 50px;
+  color: red;
+}
 .date{
   font-size: 18px;
   font-weight: 900;

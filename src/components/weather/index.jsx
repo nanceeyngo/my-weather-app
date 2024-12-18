@@ -6,19 +6,23 @@ const Weather = () => {
     const [parentSearch, parentSetSearch] = useState('');
     const [loading, setLoading] = useState(false);
     const [weatherData, setWeatherData] = useState(null);
+    const [errorMessage, setErrorMessage] = useState('');
 
     async function fetchWeatherData(param) {
         setLoading(true);
         try {
             const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${param}&appid=b855ea1cde871fe061ef49b91c08ee51`
             );
-
-            const data = await response.json();
-            if (data) {
+            if(response.ok){
+                const data = await response.json();
                 setWeatherData(data);
+                setLoading(false);
+            } else{
+                setErrorMessage('City not found!');
                 setLoading(false);
             }
         } catch (error) {
+
             console.log(error);
         }
     }
@@ -46,7 +50,7 @@ const Weather = () => {
         fetchWeatherData('nigeria');
     }, []);
 
-    console.log(weatherData);
+    // console.log(weatherData);
 
     return (
         <>
@@ -58,7 +62,7 @@ const Weather = () => {
                     handleKeyDown={parentHandleKeyDown}
                 />
 
-                {loading ? <div className='loading'>Loading...</div> :
+                {loading ? <div className='loading'>Loading...</div> : errorMessage ? <div className='error-message'>{errorMessage}</div> :
                     <div className='weather-data'>
                         <div className='city-name'>
                             <h2>{weatherData?.name}, <span>{weatherData?.sys?.country}</span></h2>
@@ -85,6 +89,7 @@ const Weather = () => {
                     </div>
 
                 }
+                
             </div>
         </>
     );
