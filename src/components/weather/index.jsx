@@ -47,8 +47,29 @@ const Weather = () => {
     }
 
     useEffect(() => {
-        fetchWeatherData('nigeria');
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+              position => {
+                const { latitude, longitude } = position.coords;
+                fetchWeatherData(latitude, longitude);
+              },
+              error => {
+                setError('Unable to retrieve your location');
+                setLoading(false);
+                console.log(error)
+              }
+              
+            );
+          } else {
+            fetchWeatherData('nigeria');
+            setLoading(false);
+          }
     }, []);
+
+    // useEffect(() => {
+    //     fetchWeatherData('nigeria');
+    // }, []);
+
 
     // console.log(weatherData);
 
